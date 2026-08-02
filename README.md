@@ -40,7 +40,7 @@ python -m evals.run_evals --model microsoft/Phi-4-mini-instruct
 ## Migration checklist
 
 - [x] Step 1 -- repo skeleton, requirements, .gitignore
-- [ ] Step 2 -- extract `odditt/` core pipeline from the notebook
+- [x] Step 2 -- extract `odditt/` core pipeline from the notebook
 - [ ] Step 3 -- extract `evals/` framework + `run_evals.py` CLI
 - [ ] Step 4 -- unit tests for scorers
 - [ ] Step 5 -- GitHub Actions workflow
