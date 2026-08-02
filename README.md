@@ -1,6 +1,6 @@
 # Odditt — Auditable Document Intelligence
 <p align="center">
-  <img src="assets/odditt.jpg" alt="Odditt - Audit Document Intelligence" width="100%">
+  <img src="assets/odditt_.jpg" alt="Odditt - Audit Document Intelligence" width="100%">
 </p>
 
 <h1 align="center">🔎 Odditt</h1>
