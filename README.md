@@ -1,4 +1,13 @@
 # Odditt — Auditable Document Intelligence
+<p align="center">
+  <img src="assets/odditt.jpg" alt="Odditt - Audit Document Intelligence" width="100%">
+</p>
+
+<h1 align="center">🔎 Odditt</h1>
+
+<p align="center">
+AI-powered Audit Document Intelligence built with RAG, local LLMs, LangChain, Gradio, and FAISS.
+</p>
 
 A local, RAG-based document Q&A tool for audit/accounting documents, with a grounding score,
 guardrails, and an evaluation framework used to gate deployment readiness.
