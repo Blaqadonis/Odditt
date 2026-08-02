@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+.venv/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Model weights -- multi-GB, never belong in git. resolve_model_dir() downloads these to a local
+# models/ folder on first run; keep them out of the repo entirely.
+models/
+
+# Uploaded/working PDFs used for manual testing (the two Nimbus mock PDFs live in evals/fixtures/
+# instead, tracked deliberately -- see Step 3).
+*.pdf
+!evals/fixtures/*.pdf
+
+# Eval run artifacts -- timestamped per-run outputs from Section 8.6. Left un-ignored deliberately:
+# whether to commit these (a history of eval runs over time) or treat them as scratch is a call
+# worth making deliberately once Step 3 is in place, not a default this file should force silently.
+# eval_results_*.csv
+# eval_summary_*.json
+# eval_failures_*.md
+
+# OS/editor noise
+.DS_Store
+.vscode/
+.idea/

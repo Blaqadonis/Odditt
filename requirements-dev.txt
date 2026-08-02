@@ -1,0 +1,7 @@
+# Only needed for running/evaluating/testing, not for the app itself.
+-r requirements.txt
+pandas
+matplotlib
+numpy
+pytest
+pytest-cov

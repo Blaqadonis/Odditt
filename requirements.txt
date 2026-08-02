@@ -1,0 +1,20 @@
+# Core RAG pipeline (mirrors the notebook's install cell exactly -- same versions/behavior).
+langchain
+langchain-community
+langchain-huggingface
+langchain-text-splitters
+faiss-cpu
+pymupdf
+pdf2image
+gradio
+transformers
+accelerate
+bitsandbytes
+sentence-transformers
+einops
+huggingface_hub
+pydantic
+Pillow
+
+# Note: pdf2image also needs the system package poppler-utils (apt-get install poppler-utils on
+# Debian/Ubuntu, brew install poppler on macOS). Not installable via pip -- documented in README.
