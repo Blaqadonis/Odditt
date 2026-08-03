@@ -1,10 +1,16 @@
-# Odditt — Auditable Document Intelligence
+<p align="center">
+  <img src="assets/odditt_.jpg" alt="Odditt - Audit Document Intelligence" width="100%">
+</p>
+
+<h1 align="center">🔎 Odditt</h1>
+<p align="center">
+Auditable Document Intelligence — built with RAG, local LLMs, LangChain, Gradio, and FAISS.
+</p>
 
 A local, RAG-based document Q&A tool for audit/accounting documents, with a grounding score,
 guardrails, and an evaluation framework used to gate deployment readiness.
 
-> **Status:** repo scaffold in progress (Step 1 of the notebook-to-repo migration). Sections below
-> will be filled in as each step lands -- see the migration checklist at the bottom.
+> **Status:** repo migration in progress -- see the checklist at the bottom for what's landed.
 
 ## Structure
 
@@ -37,11 +43,21 @@ python -m evals.run_evals --model microsoft/Phi-4-mini-instruct
 
 Writes eval_results/eval_summary/eval_failures files and exits non-zero if the deployment gate fails (useful once/if a self-hosted GPU runner is ever wired into CI -- see Step 5).
 
+## Tests
+
+Fast, model-free unit tests for the eval scorers and gold-dataset integrity -- no GPU, no
+downloads, no network. This is what CI runs on every push (Step 5).
+
+```bash
+pip install -r requirements-dev.txt
+pytest tests/ -v
+```
+
 ## Migration checklist
 
 - [x] Step 1 -- repo skeleton, requirements, .gitignore
 - [x] Step 2 -- extract `odditt/` core pipeline from the notebook
 - [x] Step 3 -- extract `evals/` framework + `run_evals.py` CLI
-- [ ] Step 4 -- unit tests for scorers
+- [x] Step 4 -- unit tests for scorers
 - [ ] Step 5 -- GitHub Actions workflow
 - [ ] Step 6 -- finish README, usage docs
