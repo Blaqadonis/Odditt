@@ -1,0 +1,35 @@
+name: Tests
+
+# Runs the fast, model-free scorer/gold-dataset tests (tests/) on every push and PR against main.
+# This does NOT run the real 40-question model eval (evals/run_evals.py) -- that needs a GPU and
+# multi-GB model weights, which free GitHub-hosted runners don't have. See README's "Running the
+# model eval" section for how/where that runs instead.
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch: {}
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: "pip"
+          cache-dependency-path: requirements-test.txt
+
+      - name: Install test dependencies
+        run: pip install -r requirements-test.txt
+
+      - name: Run tests
+        run: pytest tests/ -v

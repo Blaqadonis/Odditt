@@ -1,0 +1,7 @@
+# CI-only. Deliberately separate from requirements-dev.txt: the test suite (tests/) only imports
+# evals/scorers.py and evals/eval_cases.py, which only use the standard library (re, dataclasses,
+# typing) -- pytest is the ONLY dependency actually needed to run it. requirements-dev.txt pulls in
+# the full requirements.txt (torch, transformers, langchain, ...) via -r requirements.txt, which is
+# needed for evals/run_evals.py's real model eval but would make CI installs multi-GB and multiple
+# minutes long for no benefit, since CI never imports odditt.chatbot at all -- see README.
+pytest==8.4.2
