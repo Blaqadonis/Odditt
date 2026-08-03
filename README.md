@@ -1,13 +1,4 @@
 # Odditt — Auditable Document Intelligence
-<p align="center">
-  <img src="assets/odditt_.jpg" alt="Odditt - Audit Document Intelligence" width="100%">
-</p>
-
-<h1 align="center">🔎 Odditt</h1>
-
-<p align="center">
-Built with RAG, local LLMs, LangChain, Gradio, and FAISS.
-</p>
 
 A local, RAG-based document Q&A tool for audit/accounting documents, with a grounding score,
 guardrails, and an evaluation framework used to gate deployment readiness.
@@ -44,13 +35,13 @@ pip install -r requirements-dev.txt
 python -m evals.run_evals --model microsoft/Phi-4-mini-instruct
 ```
 
-(Command above is the target shape for Step 3 -- not wired up yet.)
+Writes eval_results/eval_summary/eval_failures files and exits non-zero if the deployment gate fails (useful once/if a self-hosted GPU runner is ever wired into CI -- see Step 5).
 
 ## Migration checklist
 
 - [x] Step 1 -- repo skeleton, requirements, .gitignore
 - [x] Step 2 -- extract `odditt/` core pipeline from the notebook
-- [ ] Step 3 -- extract `evals/` framework + `run_evals.py` CLI
+- [x] Step 3 -- extract `evals/` framework + `run_evals.py` CLI
 - [ ] Step 4 -- unit tests for scorers
 - [ ] Step 5 -- GitHub Actions workflow
 - [ ] Step 6 -- finish README, usage docs
