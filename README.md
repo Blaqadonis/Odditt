@@ -2,13 +2,13 @@
 
 <img src="assets/odditt_.jpg" alt="Odditt logo" width="500" height="500"/>
 
-# 🔎 Odditt — Auditable Document Intelligence
+# Odditt — Auditable Document Intelligence
 
 </div>
 
 **A local, citation-grounded document Q&A chatbot.** Upload any PDF, ask a question, and get an answer that comes with a **grounding score** (how well the answer is actually supported by the retrieved text) and a **source-page screenshot**, so you can verify every claim against the original document yourself instead of taking the model's word for it.
 
-Built as a Ready Tensor **AAIDC** capstone project: a full RAG pipeline plus a from-scratch evaluation harness (40 gold test cases, deterministic scorers, a deployment gate, and a head-to-head local-model comparison) — all runnable inside a single notebook, no external API keys, no eval-framework dependencies.
+Built as a full RAG pipeline plus a from-scratch evaluation harness (40 gold test cases, deterministic scorers, a deployment gate, and a head-to-head local-model comparison) — all runnable inside a single notebook, no external API keys, no eval-framework dependencies.
 
 > No document content leaves the machine. Odditt runs both the embedding model and the LLM locally (Colab / Kaggle / plain Jupyter with a GPU) — nothing is sent to a third-party API by default.
 
@@ -227,4 +227,3 @@ Deliberately out of scope for this pass, to avoid over-engineering a single-note
 
 ## Acknowledgments
 
-Built as a capstone project for Ready Tensor's **Agentic AI Developer Certification Program (AAIDC)**. Evaluation methodology, mock audit documents, and gold question bank were purpose-built for this project.
