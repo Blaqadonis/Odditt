@@ -2,13 +2,13 @@
 
 <img src="assets/odditt_.jpg" alt="Odditt logo" width="500" height="500"/>
 
-# Odditt — Auditable Document Intelligence
+# 🔎 Odditt — Auditable Document Intelligence
 
 </div>
 
 **A local, citation-grounded document Q&A chatbot.** Upload any PDF, ask a question, and get an answer that comes with a **grounding score** (how well the answer is actually supported by the retrieved text) and a **source-page screenshot**, so you can verify every claim against the original document yourself instead of taking the model's word for it.
 
-Built as a full RAG pipeline plus a from-scratch evaluation harness (40 gold test cases, deterministic scorers, a deployment gate, and a head-to-head local-model comparison) — all runnable inside a single notebook, no external API keys, no eval-framework dependencies.
+Built as a Ready Tensor **AAIDC** capstone project: a full RAG pipeline plus a from-scratch evaluation harness (40 gold test cases, deterministic scorers, a deployment gate, and a head-to-head local-model comparison) — all runnable inside a single notebook, no external API keys, no eval-framework dependencies.
 
 > No document content leaves the machine. Odditt runs both the embedding model and the LLM locally (Colab / Kaggle / plain Jupyter with a GPU) — nothing is sent to a third-party API by default.
 
@@ -52,6 +52,10 @@ PDF(s) → PyMuPDF text extraction → recursive chunking (350 chars / 75 overla
        → answer + citation + source-page screenshot (Gradio UI)
 ```
 
+<div align="center">
+<img src="assets/how_it_works_pipeline.png" alt="Odditt five-stage pipeline: Ingest, Retrieve, Generate, Verify, Answer" width="85%"/>
+</div>
+
 - **Embeddings:** `sentence-transformers/all-MiniLM-L6-v2`
 - **LLM:** `microsoft/Phi-4-mini-instruct` (4-bit quantized via `bitsandbytes`), benchmarked head-to-head against `Qwen2.5-3B-Instruct`
 - **Retrieval:** FAISS, `k=8`, deterministic generation (`do_sample=False`)
@@ -69,6 +73,10 @@ PDF(s) → PyMuPDF text extraction → recursive chunking (350 chars / 75 overla
 | **Any-PDF ingestion** | Works with any uploaded PDF(s), not a fixed document set — chunking and retrieval are document-agnostic. |
 | **Session chat history** | In-memory per-session conversation memory for follow-up questions. |
 | **Built-in evaluation harness** | 40 hand-checked gold test cases, deterministic scorers, category-level reporting, a deployment gate, and a two-model comparison — all in-notebook. |
+
+<div align="center">
+<img src="assets/key_features_grid.png" alt="Odditt key features overview" width="85%"/>
+</div>
 
 ## Evaluation results
 
@@ -133,6 +141,10 @@ The same 40-case suite was run unchanged against `Qwen2.5-3B-Instruct` to sanity
 - **Qwen2.5-3B-Instruct: NOT READY** — 14 / 40 case failures, missing gate on `math_correct_pct`, `guardrail_pass_pct`, and `unknown_pass_pct`.
 
 Retrieval and grounding are essentially tied between the two models — the gap is entirely in **instruction-following behaviors** (refusing out-of-scope questions, admitting "I don't know," letting the math tool's correction stand). That's a useful finding on its own: for this kind of auditable-answer product, model choice should be driven by guardrail/refusal discipline, not just raw retrieval quality.
+
+<div align="center">
+<img src="assets/key_insight.png" alt="Key insight: retrieval is tied between models, the real gap is guardrail and refusal discipline" width="85%"/>
+</div>
 
 <div align="center">
 
@@ -214,3 +226,5 @@ Deliberately out of scope for this pass, to avoid over-engineering a single-note
 - Deployment beyond the notebook (Hugging Face Spaces — dedicated T4 for a zero-code-change port, or ZeroGPU for a free tier).
 
 ## Acknowledgments
+
+Built as a capstone project for Ready Tensor's **Agentic AI Developer Certification Program (AAIDC)**. Evaluation methodology, mock audit documents, and gold question bank were purpose-built for this project.
