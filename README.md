@@ -1,4 +1,10 @@
-# 🔎 Odditt — Auditable Document Intelligence
+<div align="center">
+
+<img src="assets/odditt_.jpg" alt="Odditt logo" width="500" height="500"/>
+
+# Odditt — Auditable Document Intelligence
+
+</div>
 
 **A local, citation-grounded document Q&A chatbot.** Upload any PDF, ask a question, and get an answer that comes with a **grounding score** (how well the answer is actually supported by the retrieved text) and a **source-page screenshot**, so you can verify every claim against the original document yourself instead of taking the model's word for it.
 
@@ -128,9 +134,13 @@ The same 40-case suite was run unchanged against `Qwen2.5-3B-Instruct` to sanity
 
 Retrieval and grounding are essentially tied between the two models — the gap is entirely in **instruction-following behaviors** (refusing out-of-scope questions, admitting "I don't know," letting the math tool's correction stand). That's a useful finding on its own: for this kind of auditable-answer product, model choice should be driven by guardrail/refusal discipline, not just raw retrieval quality.
 
-![Deployment-gate metrics: Phi vs Qwen](assets/chart1_deployment_gate.png)
-![Keyword coverage by category: Phi vs Qwen](assets/chart2_keyword_coverage.png)
-![Latency by category: Phi vs Qwen](assets/chart3_latency_by_category.png)
+<div align="center">
+
+<img src="assets/chart1_deployment_gate.png" alt="Deployment-gate metrics: Phi vs Qwen" width="90%"/>
+
+<img src="assets/chart2_keyword_coverage.png" alt="Keyword coverage by category: Phi vs Qwen" width="44%"/> <img src="assets/chart3_latency_by_category.png" alt="Latency by category: Phi vs Qwen" width="44%"/>
+
+</div>
 
 ## Getting started
 
@@ -203,4 +213,4 @@ Deliberately out of scope for this pass, to avoid over-engineering a single-note
 - CI-based regression testing (`pytest` + the eval harness) on every prompt/config change.
 - Deployment beyond the notebook (Hugging Face Spaces — dedicated T4 for a zero-code-change port, or ZeroGPU for a free tier).
 
-
+## Acknowledgments
